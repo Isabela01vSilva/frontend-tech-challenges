@@ -17,11 +17,11 @@ O objetivo é documentar minhas soluções, demonstrar minhas habilidades técni
 
 ## 📂 Projetos
 
-| Projeto | Título | Tecnologias |
-|---|---|---|
-| [Desafio 01](./desafio-01) | Hotel Booking | Angular, TypeScript |
-| [Desafio 02](./desafio-02) | CRUD de Posts e Comentários | JavaScript, HTML, CSS |
-| [Desafio 03](./desafio-03) | Decathlon Angular | Angular, SCSS |
+| Projeto | Empresa | Título do Desafio | Tecnologias |
+|---|---|---| ---|
+| [Desafio 01](./desafio-01) | Empresa de Hotelaria | Hotel Booking | Angular, TypeScript |
+| [Desafio 02](./desafio-02) | Preço Justo | CRUD de Posts e Comentários | JavaScript, HTML, CSS |
+| [Desafio 03](./desafio-03) | Marketdata Match | Decathlon Angular | Angular, SCSS |
 
 ## 🎯 Objetivo
 
