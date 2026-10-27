@@ -1,0 +1,239 @@
+/* Aqui é o que segura tudo */
+.content-checkout {
+  width: 90vw;
+  min-height: 40vw;
+}
+/* Titulo da pagina inicial */
+.booking-title {
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 16px;
+  letter-spacing: 0%;
+  color: #00264d;
+}
+/* o que segura as 3 div grandes */
+.booking-container {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 20px;
+}
+/* a div a com as info dos hospedes */
+.booking-date {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+}
+
+.date-block {
+  background-color: #ffffff;
+  border-radius: 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  margin-bottom: 10px;
+  width: 100%;
+}
+
+.title {
+  font-weight: 700;
+  line-height: 16px;
+  letter-spacing: 0;
+  color: #00264d;
+}
+
+.input-row {
+  display: flex;
+}
+
+.form-field{
+  margin: 5px;
+}
+/* os inputs  */
+.form-field label {
+  display: block;
+  font-weight: 600;
+  font-size: 13px;
+  line-height: 16px;
+  letter-spacing: 0;
+  color: #273240;
+  padding: 4px 0px;
+}
+
+.form-field input {
+  width: 100%;
+  min-width: 0;
+
+  height: 30px;
+  padding: 8px 10px;
+  border-radius: 4px;
+  border: 1px solid #DEDEDE;
+  font-size: 13px;
+  font-weight: 400;
+  color: #273240;
+  line-height: 16px;
+  outline: none;
+}
+
+.form-field input:focus {
+  border-color: #00264D;
+  box-shadow: 0 0 0 2px rgba(0, 38, 77, 0.1);
+}
+
+#notes {
+  width: 100%;
+  padding: 8px;
+  border-radius: 6px;
+  border: 1px solid #DEDEDE;
+  font-size: 13px;
+  font-weight: 400;
+}
+
+/* erros dos campos */
+.invalid-field {
+  border: 2px solid #e74c3c;
+  background-color: #fff5f5;
+}
+
+.error {
+  font-size: 12px;
+  line-height: 10px;
+  color: #d9534f;
+  margin-top: 4px;
+  display: block;
+}
+/* Resumo da viagem das contas */
+
+.summary-block {
+  background-color: #ffffff;
+  border-radius: 16px;
+  padding: 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  height: 320px;
+  width: 100%;
+  max-width: 353px;
+}
+
+.reservation-title {
+  color: #0080ff;
+  font-family: "Titillium Web", sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 16px;
+  letter-spacing: 0;
+}
+
+.summary-hotel-info {
+  border-top: 1px solid #e4e4e4;
+  border-bottom: 1px solid #e4e4e4;
+  padding: 15px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.reservation-title-hotel {
+  color: #273240;
+  font-family: "Titillium Web", sans-serif;
+  font-weight: 700;
+  font-size: 15px;
+  line-height: 100%;
+  letter-spacing: 0;
+}
+
+.summary-address {
+  color: #698096;
+  font-size: 13px;
+  line-height: 16px;
+  letter-spacing: 0;
+}
+
+.summary-room {
+  color: #00264d;
+  font-size: 13px;
+  line-height: 26px;
+  letter-spacing: 0%;
+}
+
+.room-cancellation {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 12px;
+  color: #0080ff;
+  font-weight: 600;
+}
+.penalty {
+  color: #ff0000;
+}
+.summary-value-total {
+  display: flex;
+  flex-direction: column;
+  padding-top: 10px;
+  padding-bottom: 20px;
+}
+.summary-value {
+  display: flex;
+  justify-content: space-between;
+  padding: 5px 0px;
+}
+
+.summary-value span {
+  color: #273240;
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 16px;
+  letter-spacing: 0%;
+}
+
+.summary-total-tax {
+  font-size: 13px;
+}
+
+.summary-total {
+  color: #0080ff;
+  font-weight: 700;
+  font-style: normal;
+  font-size: 20px;
+  line-height: 16px;
+  letter-spacing: 0;
+  text-align: right;
+}
+
+.reservation ::ng-deep app-button button {
+  height: 38px;
+  border-radius: 50px;
+  font-weight: 700;
+  width: 100%;  
+}
+
+@media (max-width: 768px) {
+  .content-checkout {
+    width: 100%;
+  }
+
+  .booking-container {
+    flex-direction: column;
+  }
+
+  .input-row {
+    flex-direction: column;
+  }
+
+  .form-field {
+    width: 100%;
+    margin: 5px 0;
+  }
+
+  .summary-block {
+    max-width: 100%;
+    height: auto;
+  }
+
+  .reservation ::ng-deep app-button button {
+    width: 100%;
+  }
+
+  .summary-total {
+    font-size: 18px;
+  }
+}

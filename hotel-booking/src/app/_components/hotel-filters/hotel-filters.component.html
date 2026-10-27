@@ -1,0 +1,94 @@
+<div class="filter-container">
+  <button
+    class="filter-button"
+    aria-label="Filtros"
+    (click)="toggle('filters', $event)"
+  >
+    <i class="ph ph-faders"></i>
+  </button>
+  @if (isOpen('filters')) {
+  <div class="filter-panel" (click)="$event.stopPropagation()">
+    <div class="filter-header">
+      <p>Filtros</p>
+      <div class="filter-actions">
+        <i class="ph ph-trash"></i>
+        <button class="clear-btn" (click)="clear()">Limpar filtros</button>
+      </div>
+    </div>
+
+    <form [formGroup]="filterForm">
+      <!-- HOTEL -->
+      <div class="filter-section">
+        <label for="nameHotel" class="nameHotel">Hotel</label>
+        <input
+          class="hotelName"
+          id="hotelName"
+          type="text"
+          placeholder="Nome do hotel"
+          formControlName="nameHotel"
+        />
+      </div>
+      <hr />
+      <!-- PREÇO -->
+      <div class="filter-section">
+        <div class="filter-title" (click)="toggle('price', $event)">
+          <p>Preço</p>
+          <span><i [class]="getToggleIcon('price')"></i></span>
+        </div>
+
+        @if (isOpen('price')) {
+        <div class="price-content">
+          <div class="price-values">
+            <span class="price-number min-price">{{
+              filterForm.get("minPrice")?.value
+                | currency : "BRL" : "symbol" : "1.2-2"
+            }}</span>
+            <span class="divider">—</span>
+            <span class="price-number max-price">{{
+              filterForm.get("maxPrice")?.value
+                | currency : "BRL" : "symbol" : "1.2-2"
+            }}</span>
+          </div>
+
+          <div class="mat-slider-wrapper">
+            <mat-slider min="0" max="1200">
+              <input matSliderStartThumb formControlName="minPrice" />
+              <input matSliderEndThumb formControlName="maxPrice" />
+            </mat-slider>
+          </div>
+        </div>
+        }
+      </div>
+      <hr />
+      <!-- ESTRELAS -->
+      <div class="filter-section">
+        <div class="filter-title" (click)="toggle('stars', $event)">
+          <p>Estrelas</p>
+          <span><i [class]="getToggleIcon('stars')"></i></span>
+        </div>
+
+        @if (isOpen('stars')) {
+        <div class="checkout-list">
+          @for (entry of (hotelStars$ | async); track entry[0]) {
+          <label class="star-item">
+            <div class="checkbox-text">
+              <input type="checkbox" [value]="entry[0]" />
+              {{
+                entry[0] === 0
+                  ? "Não classificado"
+                  : entry[0] === 1
+                  ? "1 estrela"
+                  : entry[0] + " estrelas"
+              }}
+            </div>
+            <span class="star-count">{{ entry[1] }}</span>
+          </label>
+
+          }
+        </div>
+        }
+      </div>
+    </form>
+  </div>
+  }
+</div>

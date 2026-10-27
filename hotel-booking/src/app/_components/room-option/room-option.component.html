@@ -1,0 +1,31 @@
+<div class="room-card">
+  <div class="room-info">
+    <span class="room-title">{{ room.roomType.name }}</span>
+    @if (room.cancellationPolicies.refundable) {
+    <div class="room-cancellation">
+      <i class="ph-bold ph-check-circle"></i>
+      Cancelamento gratuito
+    </div>
+    } @else {
+    <div class="room-cancellation penalty">
+      <i class="ph-bold ph-x-circle penalty"></i>
+      Multa de cancelamento
+    </div>
+    }
+  </div>
+
+  <div class="room-booking">
+    <div class="room-price-info">
+      <span class="room-price">
+        <b>{{
+          room.price.amount | currency : room.price.currency : "symbol"
+        }}</b>
+        / noite
+      </span>
+      <span class="room-payment">Pagamento no hotel</span>
+    </div>
+    <div class="room-btn">
+      <app-button textBtn="Reservar Agora" (click)="search()"></app-button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,78 @@
+<div
+  [ngClass]="{
+    'is-reversed': $isReversed | async,
+    'is-normal': !($isReversed | async)
+  }"
+>
+  <form
+    [formGroup]="form"
+    class="search-form"
+    [class.has-error]="hasError"
+    (ngSubmit)="search()"
+  >
+    <div class="search-form-content">
+      <!-- Destination -->
+      <div class="search-field search-field-destination">
+        <app-destination-input
+          formControlName="destination"
+          [class.invalid]="
+            buttonClicked && form.get('destination')?.invalid
+          "
+        />
+        @if (buttonClicked && form.get('destination')?.invalid) {
+        <small class="error-message">Preencha o Destino.</small>
+        }
+      </div>
+
+      <hr />
+
+      <!-- CheckIn -->
+      <div class="search-field search-field-checkin">
+        <app-date-input
+          formControlName="checkIn"
+          labelText="Entrada"
+          [class.invalid]="buttonClicked && form.get('checkIn')?.invalid"
+        />
+        @if (buttonClicked && form.get('checkIn')?.invalid) {
+        <small class="error-message">Preencha a Data de Entrada.</small>
+        }
+      </div>
+
+      <hr />
+
+      <!-- CheckOut -->
+      <div class="search-field search-field-checkout">
+        <app-date-input
+          formControlName="checkOut"
+          labelText="Saída"
+          [class.invalid]="
+            buttonClicked && form.get('checkOut')?.invalid
+          "
+        />
+        @if (buttonClicked && form.get('checkOut')?.invalid) {
+        <small class="error-message">Preencha a Data de Saída</small>
+        } @if (buttonClicked && form.hasError('invalidDateRange')) {
+        <small class="error-message"
+          >A data de saída deve ser posterior à data de entrada.</small
+        >
+        }
+      </div>
+
+      <hr />
+
+      <!-- Guests -->
+      <div class="search-field search-field-guests">
+        <app-guest-input formControlName="guests" />
+      </div>
+
+      <!-- Apply button -->
+      <div class="search-actions">
+        <app-button textBtn="Pesquisar" type="submit" />
+      </div>
+    </div>
+  </form>
+
+  <div class="router-container">
+    <router-outlet></router-outlet>
+  </div>
+</div>
