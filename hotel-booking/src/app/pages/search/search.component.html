@@ -1,0 +1,22 @@
+@if (searchInputData$ | async; as searchInput) {
+<div class="page-container">
+  <div class="search-summary">
+    <div class="search-info">
+      <div class="location-info">
+        <b>{{ searchInput.destinationName }}, </b>
+        <span>{{ searchInput.region }}</span>
+      </div>
+      <span class="hotel-count">
+        {{ (hotelIds$ | async)!!.length }} hotéis encontrados
+      </span>
+    </div>
+    <app-hotel-filters />
+  </div>
+
+  <div class="card-grid">
+    @for (hotelId of (hotelIds$ | async); track $index) {
+    <app-card [hotelId]="hotelId"></app-card>
+    }
+  </div>
+</div>
+}

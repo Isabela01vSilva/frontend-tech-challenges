@@ -1,0 +1,10 @@
+.footer-content {
+  width: 100%;
+  height: 66px;
+
+  display: flex;
+  justify-content: center;
+
+  background-color: #ffffff;
+  padding-top: 20px;
+}
