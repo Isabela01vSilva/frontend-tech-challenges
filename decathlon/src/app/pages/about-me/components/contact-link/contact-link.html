@@ -1,0 +1,14 @@
+<div class="contact-chip fade-in">
+  <a
+    class="contact-chip__link"
+    [href]="url"
+    [target]="url.startsWith('mailto:') ? '_self' : '_blank'"
+    [rel]="url.startsWith('mailto:') ? null : 'noopener noreferrer'"
+  >
+    <i class="contact-chip__icon" [class]="icon"></i>
+
+    <span class="contact-chip__label">
+      {{ label }}
+    </span>
+  </a>
+</div>
